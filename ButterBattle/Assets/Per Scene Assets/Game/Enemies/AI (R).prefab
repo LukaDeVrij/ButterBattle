@@ -77,7 +77,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.036566436}
+  m_Offset: {x: -0.0060717463, y: 0.24057513}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -88,7 +88,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.50042605}
+  m_Size: {x: 0.5361229, y: 0.90844345}
   m_EdgeRadius: 0
 --- !u!50 &3895008863651518770
 Rigidbody2D:
@@ -124,10 +124,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 850
   nextWaypointDistance: 1
-  team: 
+  parentObject: {fileID: 3895008863651518772}
   enemyGFX: {fileID: 3204588547805022388}
+  animator: {fileID: 0}
+  damagePopupPrefab: {fileID: 5872801765535729297, guid: ae7baec75e28d6548a1d72400fb00889,
+    type: 3}
+  cost: 10
+  HP: 20
+  speed: 850
+  attackRate: 1
+  damagePerHitMax: 12
+  damagePerHitMin: 8
 --- !u!70 &7614281259153984219
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

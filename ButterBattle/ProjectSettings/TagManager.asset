@@ -6,6 +6,8 @@ TagManager:
   tags:
   - AI R
   - AI L
+  - BEACON R
+  - BEACON L
   layers:
   - Default
   - TransparentFX
@@ -51,4 +53,7 @@ TagManager:
     locked: 0
   - name: Persons
     uniqueID: 4250941897
+    locked: 0
+  - name: UI
+    uniqueID: 2393511727
     locked: 0
