@@ -8,14 +8,18 @@ public class GameController : MonoBehaviour
 
     public int currentRound = 1;
     public float timeLeftUntilNextRound = 30.0f;
-    int gold = 0;
+    public int gold = 0;
     public int goldPerRoundStart = 100;
     public GameObject enemySpawnLocation;
     public GameObject UICanvas;
     public Text goldText;
+    public Text waveText;
+    public UIHandler uiHandler;
 
     //Enemy prefab references
     public GameObject AI1;
+    public GameObject BeaconL;
+    public GameObject BeaconR;
     
 
 
@@ -28,8 +32,12 @@ public class GameController : MonoBehaviour
     void Update()
     {
         
+        
         checkForNextRound();
-
+        
+        //UI UPDATERS
+        uiHandler.updateGameInfo(currentRound, gold);
+        uiHandler.updateWaveCountdown(timeLeftUntilNextRound);
     }
 
     public void checkForNextRound()
@@ -39,16 +47,14 @@ public class GameController : MonoBehaviour
         {
             currentRound++;
             gold += goldPerRoundStart;
-            callRound();
             timeLeftUntilNextRound = 30f; //Reset round timer
+            callRound();
+            
             
         }
     }
     public void callRound()
     {
-        
-        Debug.Log("Current round:" + currentRound);
-        Debug.Log(gold);
         // TODO: Instantiate enemies based on AI on field
         // For now: just instantiate x enemies per round based on gold amount
         float nextTroopSpawnTime = 0f;
@@ -60,13 +66,13 @@ public class GameController : MonoBehaviour
         {
             //if (Time.time >= nextTroopSpawnTime)
             //{
-
+                
                 GameObject AI1clone = Instantiate(AI1, enemySpawnLocation.transform.position, Quaternion.identity);
-                AI1clone.transform.position = AI1clone.transform.position + new Vector3(Random.value, Random.value, 0);
+                AI1clone.transform.GetChild(1).gameObject.layer = LayerMask.NameToLayer("Minimap");
+                AI1clone.transform.position = AI1clone.transform.position + new Vector3(Random.Range(-1f,0f), Random.Range(-0.5f, 0.5f), 0);
                 gold -= AI1clone.GetComponent<EnemyAI>().cost;
                 cost = AI1clone.GetComponent<EnemyAI>().cost;
-                goldText.text = "Gold: " + gold;
-                Debug.Log(gold);
+                
 
                 nextTroopSpawnTime = Time.time + troopSpawnInterval;
 
@@ -79,6 +85,18 @@ public class GameController : MonoBehaviour
             //{
             //    return;
             //}
+        }
+    }
+
+    public void WinLossCheck()
+    {
+        if (BeaconL.GetComponent<Beacon>().HP <= 0)
+        {
+            Debug.Log("Right wins");
+        }
+        if (BeaconR.GetComponent<Beacon>().HP <= 0)
+        {
+            Debug.Log("Left wins");
         }
     }
 }

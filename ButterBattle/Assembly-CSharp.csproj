@@ -57,20 +57,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\TopDownCharacterController.cs" />
+    <Compile Include="Assets\Per Scene Assets\Game\UI\DamagePopup.cs" />
     <Compile Include="Assets\DragCamera2D\Scripts\Runtime\Dc2dWaypoint.cs" />
     <Compile Include="Assets\Per Scene Assets\Game\GameController.cs" />
     <Compile Include="Assets\DragCamera2D\Scripts\Runtime\CameraBounds.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\PropsAltar.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\SpriteColorAnimation.cs" />
     <Compile Include="Assets\DragCamera2D\Scripts\Runtime\DragCamera2D.cs" />
-    <Compile Include="Assets\EnemyAI.cs" />
+    <Compile Include="Assets\Per Scene Assets\Game\Enemies\EnemyAI.cs" />
     <Compile Include="Assets\DragCamera2D\Scripts\Runtime\Dc2dDolly.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\LayerTrigger.cs" />
     <Compile Include="Assets\Per Scene Assets\Game\Beacon.cs" />
     <Compile Include="Assets\DragCamera2D\Scripts\Runtime\Dc2dUtils.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\CameraFollow.cs" />
     <Compile Include="Assets\DragCamera2D\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Per Scene Assets\Game\DamagePopup.cs" />
+    <Compile Include="Assets\Per Scene Assets\Game\UI\HealthBarScript.cs" />
+    <Compile Include="Assets\Per Scene Assets\Game\UI\UIHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

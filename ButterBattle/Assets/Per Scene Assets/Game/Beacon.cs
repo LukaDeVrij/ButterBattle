@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class Beacon : MonoBehaviour
 {
+
+    public int startHP = 100;
+    public int HP = 100;
+
+    public HealthBarScript healthBarScript;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        healthBarScript.SetMaxHealth(startHP);
     }
 
     // Update is called once per frame
@@ -16,24 +23,8 @@ public class Beacon : MonoBehaviour
         
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void updateHPDisplay()
     {
-        
-
-    }
-    public void OnTriggerEnter(Collider other)
-    {
-        
-
-    }
-    public void OnTriggerStay(Collider other)
-    {
-       
-
-    }
-    public void OnTriggerStay2D(Collider2D collision)
-    {
-        
-
+        healthBarScript.SetHealth(HP);
     }
 }

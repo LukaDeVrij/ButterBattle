@@ -31,9 +31,9 @@ TagManager:
   - 
   - Beacons
   - Characters
+  - test
   - Background
-  - 
-  - 
+  - Minimap
   - 
   - 
   - 
@@ -47,6 +47,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 2425651459
+    locked: 0
+  - name: Minimap
+    uniqueID: 3656545001
     locked: 0
   - name: Beacons
     uniqueID: 4189426099
