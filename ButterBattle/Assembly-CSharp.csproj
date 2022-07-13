@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\TopDownCharacterController.cs" />
     <Compile Include="Assets\Per Scene Assets\Game\UI\DamagePopup.cs" />
+    <Compile Include="Assets\Per Scene Assets\Game\UI\UIHandler.cs" />
     <Compile Include="Assets\DragCamera2D\Scripts\Runtime\Dc2dWaypoint.cs" />
     <Compile Include="Assets\Per Scene Assets\Game\GameController.cs" />
     <Compile Include="Assets\DragCamera2D\Scripts\Runtime\CameraBounds.cs" />
@@ -65,14 +66,18 @@
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\SpriteColorAnimation.cs" />
     <Compile Include="Assets\DragCamera2D\Scripts\Runtime\DragCamera2D.cs" />
     <Compile Include="Assets\Per Scene Assets\Game\Enemies\EnemyAI.cs" />
+    <Compile Include="Assets\Per Scene Assets\Game\UI\HealthBarScript.cs" />
     <Compile Include="Assets\DragCamera2D\Scripts\Runtime\Dc2dDolly.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\LayerTrigger.cs" />
-    <Compile Include="Assets\Per Scene Assets\Game\Beacon.cs" />
+    <Compile Include="Assets\Per Scene Assets\Game\BeaconLogic\Beacon.cs" />
     <Compile Include="Assets\DragCamera2D\Scripts\Runtime\Dc2dUtils.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\CameraFollow.cs" />
     <Compile Include="Assets\DragCamera2D\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Per Scene Assets\Game\UI\HealthBarScript.cs" />
-    <Compile Include="Assets\Per Scene Assets\Game\UI\UIHandler.cs" />
+    <Compile Include="Assets\Per Scene Assets\Game\BeaconLogic\BeaconDefense.cs" />
+    <Compile Include="Assets\Per Scene Assets\Game\BeaconLogic\Bullet.cs" />
+    <Compile Include="Assets\Per Scene Assets\Game\UI\TroopSelect\ButtonBehaviour.cs" />
+    <Compile Include="Assets\Per Scene Assets\Game\UI\TroopSelect\CurrentlySelected.cs" />
+    <Compile Include="Assets\Per Scene Assets\Game\Enemies\TroopProperties.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

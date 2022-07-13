@@ -25,18 +25,23 @@ public class EnemyAI : MonoBehaviour
     public GameObject damagePopupPrefab;
     public Beacon beacon;
     public GameController controller;
+    public int troopIndex;
 
-    //Properties
+    //Properties that get set based on TroopProperties.cs
     public int cost;
-    public int HP;
-    public float speed = 200f;
+    public int hp;
+    public float speed;
     public float attackRate;
+    public int ADamageMin;
+    public int ADamageMax;
+    public int BDamageMin;
+    public int BDamageMax;
+    public string armorClass;
+
+    //Hit timer thingy
     float nextAttackTime = 0f;
-    public int damagePerHitMin;
-    public int damagePerHitMax;
-    
 
-
+    //Pathseeking bollocks
     Path path;
     int currentWaypoint = 0;
     bool reachedEndOfPath = false;
@@ -48,6 +53,8 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
@@ -56,11 +63,35 @@ public class EnemyAI : MonoBehaviour
         if (gameObject.tag =="AI L")
         {
             target = GameObject.Find("TargetR").transform;
+            GameObject controllerGameObj = GameObject.Find("GameController");
+            controller = controllerGameObj.GetComponent<GameController>();
+            GameObject beaconGameObj = GameObject.Find("TargetR");
+            beacon = beaconGameObj.GetComponent<Beacon>();
         }
         if (gameObject.tag == "AI R")
         {
             target = GameObject.Find("TargetL").transform;
+            GameObject controllerGameObj = GameObject.Find("GameController");
+            controller = controllerGameObj.GetComponent<GameController>();
+            GameObject beaconGameObj = GameObject.Find("TargetL");
+            beacon = beaconGameObj.GetComponent<Beacon>();
         }
+
+        InvokeProperties(troopIndex);
+
+    }
+
+    public void InvokeProperties(int troopIndex)
+    {
+
+        cost = TroopProperties.costOf[troopIndex];
+        hp = TroopProperties.hpOf[troopIndex];
+        speed = TroopProperties.speedOf[troopIndex];
+        attackRate = TroopProperties.attackRateOf[troopIndex];
+        ADamageMin = TroopProperties.ADamageMinOf[troopIndex];
+        ADamageMax = TroopProperties.ADamageMaxOf[troopIndex];
+        BDamageMin = TroopProperties.BDamageMinOf[troopIndex];
+        BDamageMax = TroopProperties.BDamageMaxOf[troopIndex];
 
     }
 
@@ -125,7 +156,7 @@ public class EnemyAI : MonoBehaviour
         }
 
 
-        if (HP <= 0)
+        if (hp <= 0)
         {
             Destroy(gameObject);
             //Death
@@ -134,10 +165,10 @@ public class EnemyAI : MonoBehaviour
         //Hit beacon
         if (Vector3.Distance(parentObject.transform.position, target.position) <= 3f)
         {
-            Debug.Log("BEACON REACHED");
             HitEnemy(target.gameObject);
 
         }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -171,7 +202,7 @@ public class EnemyAI : MonoBehaviour
 
                 rb.AddForce(force);
 
-                if (Vector3.Distance(parentObject.transform.position, enemy.transform.position) <= 1f)
+                if (Vector3.Distance(parentObject.transform.position, enemy.transform.position) <= 2f)
                 {
                     rb.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeAll;
                     HitEnemy(collision.gameObject);
@@ -183,6 +214,8 @@ public class EnemyAI : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         seeker.StartPath(rb.position, target.transform.position, OnPathComplete);
+        rb.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+        rb.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
     }
     void HitEnemy(GameObject collision)
     {
@@ -193,7 +226,7 @@ public class EnemyAI : MonoBehaviour
         {   
             
             //Randomise hit damage
-            int damagePerHit = Random.Range(damagePerHitMin, damagePerHitMax);
+            int damagePerHit = Random.Range(ADamageMin, ADamageMax);
 
             //Popup damage
             GameObject damagePopupObject = Instantiate(damagePopupPrefab, collision.transform.position + new Vector3(0,1,0), Quaternion.identity);
@@ -203,7 +236,7 @@ public class EnemyAI : MonoBehaviour
             //Actual hit damage
             
             if (collision.tag == "AI R" | collision.tag == "AI L") {
-                collision.GetComponent<EnemyAI>().HP = collision.GetComponent<EnemyAI>().HP - damagePerHit;
+                collision.GetComponent<EnemyAI>().hp = collision.GetComponent<EnemyAI>().hp - damagePerHit;
             }
 
             if (collision.tag == "BEACON L" | collision.tag == "BEACON R")

@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour
     public UIHandler uiHandler;
 
     //Enemy prefab references
-    public GameObject AI1;
+    public GameObject AI0;
     public GameObject BeaconL;
     public GameObject BeaconR;
     
@@ -67,7 +67,7 @@ public class GameController : MonoBehaviour
             //if (Time.time >= nextTroopSpawnTime)
             //{
                 
-                GameObject AI1clone = Instantiate(AI1, enemySpawnLocation.transform.position, Quaternion.identity);
+                GameObject AI1clone = Instantiate(AI0, enemySpawnLocation.transform.position, Quaternion.identity);
                 AI1clone.transform.GetChild(1).gameObject.layer = LayerMask.NameToLayer("Minimap");
                 AI1clone.transform.position = AI1clone.transform.position + new Vector3(Random.Range(-1f,0f), Random.Range(-0.5f, 0.5f), 0);
                 gold -= AI1clone.GetComponent<EnemyAI>().cost;
