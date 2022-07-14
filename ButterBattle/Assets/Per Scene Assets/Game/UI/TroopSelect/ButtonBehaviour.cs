@@ -10,6 +10,7 @@ public class ButtonBehaviour : MonoBehaviour
     public int troopIndex;
     public GameObject previewImageGameObject;
     public Image backgroundImage;
+    public TooltipUpdater tooltipUpdater;
 
     void Start()
     {
@@ -32,19 +33,17 @@ public class ButtonBehaviour : MonoBehaviour
     public void onClick()
     {
         TroopProperties.troopSelected = troopIndex;
-        
-
-
+        tooltipUpdater.changeTooltip(troopIndex);
     }
 
     public void onHoverEnter()
     {
-       
+        tooltipUpdater.changeTooltip(troopIndex);
     }
 
     public void onHoverQuit()
     {
-
+        tooltipUpdater.changeTooltip(TroopProperties.troopSelected);
     }
 
 }

@@ -10,7 +10,7 @@ public class TroopProperties : MonoBehaviour
     public static Dictionary<int, int> costOf = new Dictionary<int, int>()
     {
         {0, 10},
-        {1, 10},
+        {1, 20},
         {2, 10},
         {3, 10},
         {4, 10},
@@ -23,7 +23,7 @@ public class TroopProperties : MonoBehaviour
     public static Dictionary<int, int> hpOf = new Dictionary<int, int>()
     {
         {0, 30},
-        {1, 30},
+        {1, 50},
         {2, 30},
         {3, 30},
         {4, 30},
@@ -36,7 +36,7 @@ public class TroopProperties : MonoBehaviour
     public static Dictionary<int, int> speedOf = new Dictionary<int, int>()
     {
         {0, 1000},
-        {1, 1000},
+        {1, 1200},
         {2, 1000},
         {3, 1000},
         {4, 1000},
@@ -49,7 +49,7 @@ public class TroopProperties : MonoBehaviour
     public static Dictionary<int, float> attackRateOf = new Dictionary<int, float>()
     {
         {0, 1},
-        {1, 1},
+        {1, 0.5f},
         {2, 1},
         {3, 1},
         {4, 1},
@@ -62,7 +62,7 @@ public class TroopProperties : MonoBehaviour
     public static Dictionary<int, int> ADamageMinOf = new Dictionary<int, int>()
     {
         {0, 8},
-        {1, 8},
+        {1, 6},
         {2, 8},
         {3, 8},
         {4, 8},
@@ -75,7 +75,7 @@ public class TroopProperties : MonoBehaviour
     public static Dictionary<int, int> ADamageMaxOf = new Dictionary<int, int>()
     {
         {0, 12},
-        {1, 12},
+        {1, 8},
         {2, 12},
         {3, 12},
         {4, 12},
@@ -88,7 +88,7 @@ public class TroopProperties : MonoBehaviour
     public static Dictionary<int, int> BDamageMinOf = new Dictionary<int, int>()
     {
         {0, 10},
-        {1, 10},
+        {1, 20},
         {2, 10},
         {3, 10},
         {4, 10},
@@ -101,7 +101,7 @@ public class TroopProperties : MonoBehaviour
     public static Dictionary<int, int> BDamageMaxOf = new Dictionary<int, int>()
     {
         {0, 10},
-        {1, 10},
+        {1, 30},
         {2, 10},
         {3, 10},
         {4, 10},
@@ -113,8 +113,8 @@ public class TroopProperties : MonoBehaviour
     };
     public static Dictionary<int, string> armorClassOf = new Dictionary<int, string>()
     {
-        {0, "armored"},
-        {1, "armored"},
+        {0, "Armored"},
+        {1, "Light"},
         {2, "armored"},
         {3, "armored"},
         {4, "armored"},
@@ -124,5 +124,19 @@ public class TroopProperties : MonoBehaviour
         {8, "armored"},
         {9, "armored"}
     };
+    public static Dictionary<int, string> nameOf = new Dictionary<int, string>()
+    {
+        {0, "Enemy0Name"},
+        {1, "Enemy1Name"},
+        {2, "Enemy2Name"},
+        {3, "Enemy3Name"},
+        {4, "Enemy4Name"},
+        {5, "Enemy5Name"},
+        {6, "Enemy6Name"},
+        {7, "Enemy7Name"},
+        {8, "Enemy8Name"},
+        {9, "Enemy9Name"}
+    };
+
 
 }
