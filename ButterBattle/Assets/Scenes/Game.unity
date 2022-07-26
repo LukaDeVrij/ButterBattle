@@ -6252,6 +6252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 134519708}
   - component: {fileID: 134519707}
+  - component: {fileID: 134519709}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -6274,13 +6275,35 @@ MonoBehaviour:
   currentRound: 0
   timeLeftUntilNextRound: 0
   gold: 100
-  goldPerRoundStart: 10
+  goldPerRoundStart: 100
+  enemyGold: 100
   enemySpawnLocation: {fileID: 123609549}
+  playerSpawnLocation: {fileID: 211514944}
   UICanvas: {fileID: 1506535729}
   goldText: {fileID: 91702675}
   waveText: {fileID: 613587374}
   uiHandler: {fileID: 1601136265}
+  waveController: {fileID: 134519709}
   AI0: {fileID: 3895008863651518772, guid: 3dc5c1f9b3566024282a5124e78765e8, type: 3}
+  AI1: {fileID: 3895008863651518772, guid: 3dc5c1f9b3566024282a5124e78765e8, type: 3}
+  AI2: {fileID: 3895008863651518772, guid: 3dc5c1f9b3566024282a5124e78765e8, type: 3}
+  AI3: {fileID: 3895008863651518772, guid: 3dc5c1f9b3566024282a5124e78765e8, type: 3}
+  AI4: {fileID: 3895008863651518772, guid: 3dc5c1f9b3566024282a5124e78765e8, type: 3}
+  AI5: {fileID: 3895008863651518772, guid: 3dc5c1f9b3566024282a5124e78765e8, type: 3}
+  AI6: {fileID: 3895008863651518772, guid: 3dc5c1f9b3566024282a5124e78765e8, type: 3}
+  AI7: {fileID: 3895008863651518772, guid: 3dc5c1f9b3566024282a5124e78765e8, type: 3}
+  AI8: {fileID: 3895008863651518772, guid: 3dc5c1f9b3566024282a5124e78765e8, type: 3}
+  AI9: {fileID: 3895008863651518772, guid: 3dc5c1f9b3566024282a5124e78765e8, type: 3}
+  AI0P: {fileID: 2485000105327713685, guid: d51f5a9d723754444a57b1ef6cadf352, type: 3}
+  AI1P: {fileID: 2485000105327713685, guid: d51f5a9d723754444a57b1ef6cadf352, type: 3}
+  AI2P: {fileID: 2485000105327713685, guid: d51f5a9d723754444a57b1ef6cadf352, type: 3}
+  AI3P: {fileID: 2485000105327713685, guid: d51f5a9d723754444a57b1ef6cadf352, type: 3}
+  AI4P: {fileID: 2485000105327713685, guid: d51f5a9d723754444a57b1ef6cadf352, type: 3}
+  AI5P: {fileID: 2485000105327713685, guid: d51f5a9d723754444a57b1ef6cadf352, type: 3}
+  AI6P: {fileID: 2485000105327713685, guid: d51f5a9d723754444a57b1ef6cadf352, type: 3}
+  AI7P: {fileID: 2485000105327713685, guid: d51f5a9d723754444a57b1ef6cadf352, type: 3}
+  AI8P: {fileID: 2485000105327713685, guid: d51f5a9d723754444a57b1ef6cadf352, type: 3}
+  AI9P: {fileID: 2485000105327713685, guid: d51f5a9d723754444a57b1ef6cadf352, type: 3}
   BeaconL: {fileID: 1744894890}
   BeaconR: {fileID: 846017502}
 --- !u!4 &134519708
@@ -6297,6 +6320,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &134519709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134519706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddbaa74f22c35844ab21fc2560e3e618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &134643129 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5100217437599595380, guid: 8d15c39fd3e3cab47ab96fbaf6dc2f92,

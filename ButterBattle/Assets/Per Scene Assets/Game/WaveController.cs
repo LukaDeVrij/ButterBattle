@@ -4,50 +4,70 @@ using UnityEngine;
 
 public class WaveController : MonoBehaviour
 {
+    int iterations = 0;
+    int playerGold;
+    int enemyGold;
 
-    public static void callRound()
+    public void syncGold(GameController gameController)
+    {
+        playerGold = gameController.gold;
+        enemyGold = gameController.enemyGold;
+    }
+
+    public void callRound(GameController gameController)
     {
         // TODO: Instantiate enemies based on AI on field
         // For now: just instantiate x enemies per round based on gold amount
 
         //System for choosing which troops to call and amount of enemy troops 
-        //
-        enemyWave();
+
+        syncGold(gameController);
+        enemyWave(gameController.enemyAIMap, gameController.enemySpawnLocation);
         playerWave();
+        
 
     }
 
-    static void enemyWave()
+    void enemyWave(Dictionary<int, GameObject> AImap, GameObject spawnLoc)
     {
-        int iterations = 0;
-        while (iterations < 100)
-        {
+        
+        int troopToBeSpawned = Random.Range(0, 10);
 
+        StartCoroutine(spawnEnemyTroop(troopToBeSpawned, TroopProperties.costOf[troopToBeSpawned], AImap[troopToBeSpawned], spawnLoc));
 
-        }
     }
 
     static void playerWave()
     {
+        int troopSelected = TroopProperties.troopSelected;
+        //Do stuff
 
     }
+  
 
-    IEnumerator spawnTroop(int troopType, int cost, int currentGold)
+    IEnumerator spawnEnemyTroop(int troopType, int cost, GameObject AI, GameObject spawnLocation)
     {
-        if (currentGold - cost < 0)
+        while (iterations < 100)
         {
-            GameObject AI1clone = Instantiate(AI0, enemySpawnLocation.transform.position, Quaternion.identity);
+            Debug.Log(enemyGold - cost);
+            if (enemyGold - cost > 0)
+            {
+
+                GameObject AI1clone = Instantiate(AI, spawnLocation.transform.position, Quaternion.identity);
 
 
-            AI1clone.transform.GetChild(1).gameObject.layer = LayerMask.NameToLayer("Minimap");
-            AI1clone.transform.position = AI1clone.transform.position + new Vector3(Random.Range(-1f, 0f), Random.Range(-0.5f, 0.5f), 0);
+                AI1clone.transform.GetChild(1).gameObject.layer = LayerMask.NameToLayer("Minimap");
+                AI1clone.transform.position = AI1clone.transform.position + new Vector3(Random.Range(-1f, 0f), Random.Range(-0.5f, 0.5f), 0);
 
-            currentGold -= cost;
+                enemyGold -= cost;
+                yield return new WaitForSeconds(.5f);
+            }
+            else
+            {
+                StopAllCoroutines();
+            }
+            iterations++;
         }
-
-
-
-
-        yield return new WaitForSeconds(1f);
+        
     }
 }
