@@ -128,7 +128,7 @@ MonoBehaviour:
   nextWaypointDistance: 1
   parentObject: {fileID: 2485000105327713685}
   enemyGFX: {fileID: 6550604652784432851}
-  animator: {fileID: 0}
+  animator: {fileID: 7660355009503650860}
   damagePopupPrefab: {fileID: 5872801765535729297, guid: ae7baec75e28d6548a1d72400fb00889,
     type: 3}
   beacon: {fileID: 0}
@@ -252,6 +252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6550604652784432851}
   - component: {fileID: 245972713245945986}
+  - component: {fileID: 7660355009503650860}
   m_Layer: 21
   m_Name: PF Props Gravestone A
   m_TagString: Untagged
@@ -324,3 +325,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!95 &7660355009503650860
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8731208222108786521}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 75d4398a0c8276944be282e017b613d0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

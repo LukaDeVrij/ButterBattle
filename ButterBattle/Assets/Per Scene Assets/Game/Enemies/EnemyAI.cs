@@ -136,6 +136,9 @@ public class EnemyAI : MonoBehaviour
         Vector2 direction = ((Vector2) path.vectorPath[currentWaypoint] - rb.position).normalized;
         Vector2 force = direction * speed * 10000 * Time.deltaTime;
 
+        animator.SetBool("Attacking", false);
+        animator.SetBool("Walking", true);
+
         rb.AddForce(force);
 
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
@@ -222,9 +225,14 @@ public class EnemyAI : MonoBehaviour
         //Hit logic
         //Play animation
         //animator.SetTrigger("Hit"); See brackeys video
+        
+
         if (Time.time >= nextAttackTime)
-        {   
-            
+        {
+
+            animator.SetBool("Walking", false);
+            animator.SetBool("Attacking", true);
+
             //Randomise hit damage
             int damagePerHit = Random.Range(ADamageMin, ADamageMax);
 
